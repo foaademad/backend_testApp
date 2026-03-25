@@ -1,15 +1,18 @@
 import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
-import counterRoutes from "./routes/counterRoutes.js";
-import statsRoutes from "./routes/statsRoutes.js";
-import errorHandler from "./middlewares/errorHandler.js";
-import notFound from "./middlewares/notFound.js";
-import swaggerDocument from "./swagger.js";
-import { sendResponse } from "./utils/response.js";
+import counterRoutes from "./src/routes/counterRoutes.js";
+import statsRoutes from "./src/routes/statsRoutes.js";
+import errorHandler from "./src/middlewares/errorHandler.js";
+import notFound from "./src/middlewares/notFound.js";
+import swaggerDocument from "./src/swagger.js";
+import { sendResponse } from "./src/utils/response.js";
+
+dotenv.config();
 
 const app = express();
 const apiLimiter = rateLimit({
